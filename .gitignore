@@ -12,6 +12,8 @@ wandb/*
 # file
 *.pyc
 *.env
+.env.production
+.env.staging
 *.zip
 *.pt
 *.csv

@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import './App.css'
+import './App.css';
 
 function App() {
   const [file, setFile] = useState(null);
   const [prediction, setPrediction] = useState("");
   const [loading, setLoading] = useState(false);
   const [preview, setPreview] = useState(null);
-
+  const apiUrl = import.meta.env.VITE_BACKEND_API || "";
+  console.log("FETCH API HERE: ", apiUrl);
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     setFile(file);
@@ -27,7 +28,7 @@ function App() {
     formData.append("file", file);
 
     try {
-      const res = await fetch("http://localhost:8000/predict", {
+      const res = await fetch(`${apiUrl}/predict`, {
         method: "POST",
         body: formData,
       });

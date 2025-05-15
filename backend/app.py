@@ -10,13 +10,10 @@ from fastapi.middleware.cors import CORSMiddleware
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Load model and store in app.state
-    run = wandb.init(
-        project="hutech_mushroom",
-        job_type="inference",
-    )
+    api = wandb.Api()
     id = "convnext-model"
     version = "best"
-    artifact_model = run.use_artifact(
+    artifact_model = api.use_artifact(
         f"hutech_mushroom/{id}:{version}",
         type="model",
     )

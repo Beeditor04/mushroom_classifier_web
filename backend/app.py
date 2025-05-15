@@ -13,7 +13,7 @@ async def lifespan(app: FastAPI):
     api = wandb.Api()
     id = "convnext-model"
     version = "best"
-    artifact_model = api.use_artifact(
+    artifact_model = api.artifact(
         f"hutech_mushroom/{id}:{version}",
         type="model",
     )

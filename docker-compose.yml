@@ -1,6 +1,6 @@
 services:
   backend:
-    image: HM-backend
+    image: hm-backend
     build: ./backend
     ports:
       - "8000:8000"
@@ -12,7 +12,7 @@ services:
       timeout: 10s
       retries: 3
   frontend:
-    image: HM-frontend
+    image: hm-frontend
     build:
       context: ./frontend
       dockerfile: Dockerfile

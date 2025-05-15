@@ -17,5 +17,5 @@ wandb/*
 *.zip
 *.pt
 *.csv
-
+note.md
 # folder

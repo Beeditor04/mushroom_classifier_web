@@ -6,7 +6,7 @@ function App() {
   const [prediction, setPrediction] = useState("");
   const [loading, setLoading] = useState(false);
   const [preview, setPreview] = useState(null);
-  const apiUrl = import.meta.env.VITE_BACKEND_API || "";
+  const apiUrl = import.meta.env.VITE_BACKEND_API || "http://192.168.28.90:8000/";
   console.log("FETCH API HERE: ", apiUrl);
   const handleFileChange = (e) => {
     const file = e.target.files[0];

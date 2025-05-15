@@ -15,3 +15,4 @@ npm run dev
 ```bash
 docker compose up --build
 ```
+then go to `http://192.168.28.90:3000` for website, `:8000/docs` for fastAPI lab

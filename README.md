@@ -35,7 +35,7 @@ docker compose up --build
 4. Truy cập `http://192.168.28.90:3000` để thử nghiệm
 
 ## Videos
-- links: 
+- links: https://drive.google.com/file/d/1--ARQtPlUUUzdJU4m6sgbSpK51RD3xdH/view?usp=drive_link
 
 ## Demo locally (no docker, for dev stuff)
 # 1. running backend

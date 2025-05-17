@@ -1,7 +1,47 @@
+# Lab02: Serving model qua API và đóng gói với docker
+
+# Members
+| Name                | MSSV      | Roles  |
+|---------------------|-----------|--------|
+| Nguyễn Hữu Nam      | 22520917  | Leader |
+| Nguyễn Khánh        | 22520641  | Member |
+| Nguyễn Minh Sơn        | 22521254  | Member |
+
+# Structure
+```bash
+├── README.md
+├── backend
+│   ├── Dockerfile
+│   └── entrypoint_local.sh
+├── docker-compose.yml
+├── frontend
+│   ├── Dockerfile
+│   └──.env
+└── .env
+```
+## Intructions
+1. Tạo file .env ở thư mục root với nội dung (link [key](https://drive.google.com/file/d/12J9SV2gm4PFg_6vuTpBw8j0bKCENeWzq/view?usp=sharing)):
+```bash
+WANDB_API_KEY= # for security reason there is no api key here
+```
+2. Tạo file .env ở thư mục `frontend` với nội dung:
+```bash
+VITE_BACKEND_API=http://192.168.28.90:8000
+```
+3. Chạy server với docker compose:
+```bash
+docker compose up --build
+```
+4. Truy cập `http://192.168.28.90:3000` để thử nghiệm
+
+## Videos
+- links: 
+
+## Demo locally (no docker, for dev stuff)
 # 1. running backend
 ```bash
 cd backend
-chmod ./entrypoint.sh
+chmod ./entrypoint_local.sh
 ./entrypoint.sh
 ```
 
@@ -10,9 +50,3 @@ chmod ./entrypoint.sh
 npm install
 npm run dev
 ```
-
-# 3. docker + .env file
-```bash
-docker compose up --build
-```
-then go to `http://192.168.28.90:3000` for website, `:8000/docs` for fastAPI lab

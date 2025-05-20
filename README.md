@@ -41,8 +41,12 @@ docker compose up --build
 # 1. running backend
 ```bash
 cd backend
-chmod ./entrypoint_local.sh
-./entrypoint.sh
+chmod +x ./entrypoint_local.sh
+./entrypoint_local.sh
+```
+if got error, try to export environment key (`WANDB_BASE_URL`) manually, then run it again:
+```bash
+export WANDB_BASE_URL=https://api.wandb.ai
 ```
 
 # 2. running frontend

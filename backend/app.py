@@ -62,13 +62,23 @@ async def predict(file: UploadFile = File(...)):
     #construct img tensor
     img_tensor = transform(image).unsqueeze(0).to(device)
     model.eval()
+    THRESHOLD = 0.7
     with torch.no_grad(): #predict w no grad
         output = model(img_tensor)
-        _, predicted = torch.max(output, 1)
+        probabilities = torch.nn.functional.softmax(output, dim=1)
+        predicted_idx = torch.argmax(probabilities, dim=1)
+        # Check if the probability is above the threshold
+        if probabilities[0][predicted_idx].item() < THRESHOLD:
+            return {"predicted_class": "Can not find any mushroom."}
+        print("Output:", output)
+        print("Conf:", probabilities)
+        print(torch.max(output, 1))
+        print(predicted_idx)
+
     classes = {
         0: "nấm mỡ",
         1: "nấm bào ngư",
         2: "nấm đùi gà",
         3: "nấm linh chi trắng",
     }
-    return {"predicted_class": classes[predicted.item()]}
+    return {"predicted_class": classes[predicted_idx.item()]}
